@@ -13,10 +13,10 @@ parameters:
     type: string
     required: false
     description: parameter accepts "Running", "Paused", "Canceled", "Finished", "Error", "Queued", and "Loading".
-  title:
-    type: string
-    required: false
-    description: Filter by scan title
+#  title:
+#    type: string
+#    required: false
+#    description: Filter by scan title
   scan_type:
     type: string
     required: false
