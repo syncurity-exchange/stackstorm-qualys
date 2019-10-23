@@ -1,0 +1,11 @@
+---
+name: get_scan_results
+runner_type: python-script
+description: Get Scan Results
+enabled: true
+entry_point: get_scan_results.py
+parameters:
+  scan_ref:
+    type: string
+    description: The scan_ref from launching the scan (e.g. `scan/1571410846.80556`)
+    required: true
