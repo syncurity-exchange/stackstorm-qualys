@@ -1,5 +1,7 @@
 from lib.base import QualysBaseAction
 
+from datetime import datetime
+import datetime
 import json
 
 __all__ = [
@@ -12,4 +14,7 @@ class LaunchScanAction(QualysBaseAction):
             asset_groups=None, ip=None):
         scan = self.connection.launchScan(title, option_title,
                                           iscanner_name, asset_groups, ip)
-        return True, json.dumps(self.resultsets.formatter(scan))
+        output = self.resultsets.formatter(scan)
+        if isinstance(output['launch_datetime'], datetime.date()):
+            output['launch_datetime'] = output['launch_datetime'].isoformat()
+        return True, json.dumps(output)
