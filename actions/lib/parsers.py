@@ -22,6 +22,7 @@ class ResultSets(object):
             return self.parse(output, FieldLists.REPORT)
         else:
             print('list not selected')
+            print(output)
             return output
 
     def formatter(self, output):
@@ -30,9 +31,11 @@ class ResultSets(object):
             for o in output:
                 formatted.append(self.selector(o))
             print('formatter is list')
+            print(formatted)
         else:
             formatted = self.selector(output)
             print('formatter not list')
+            print(formatted)
         return formatted
 
     def _getval(self, obj, field):
