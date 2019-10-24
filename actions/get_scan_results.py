@@ -9,7 +9,8 @@ class LaunchScanAction(QualysBaseAction):
     def run(self, scan_ref=None):
         payload = {
             'scan_ref': scan_ref,
-            'action': 'fetch'
+            'action': 'fetch',
+            'output_format': 'json'
         }
         scan_results = None
         try:
