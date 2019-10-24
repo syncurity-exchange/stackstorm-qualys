@@ -1,5 +1,7 @@
 from lib.base import QualysBaseAction
 
+import json
+
 __all__ = [
     'GetScanResults'
 ]
@@ -20,7 +22,7 @@ class LaunchScanAction(QualysBaseAction):
                 api_version=2,
                 http_method='GET'
             )
-            return True, scan_results.json()
+            return True, json.loads(scan_results)
         except ConnectionError as e:
             return False, e
 
