@@ -11,4 +11,4 @@ class LaunchScanAction(QualysBaseAction):
         scan = self.connection.launchScan(title, option_title,
                                           iscanner_name, asset_groups, ip)
         print(scan)
-        return self.resultsets.formatter(scan)
+        return True, self.resultsets.formatter(scan)
