@@ -20,7 +20,7 @@ class LaunchScanAction(QualysBaseAction):
                 api_version=2,
                 http_method='GET'
             )
-            return True, scan_results
+            return True, scan_results.json()
         except ConnectionError as e:
             return False, e
 
