@@ -8,4 +8,4 @@ __all__ = [
 class GetHostRangeAction(QualysBaseAction):
     def run(self, host_start, host_end):
         host = self.connection.getHostRange(host_start, host_end)
-        return self.resultsets.formatter(host)
+        return True, self.resultsets.formatter(host)

@@ -10,4 +10,4 @@ class ListScansAction(QualysBaseAction):
             scan_type="", user_login=""):
         scans = self.connection.listScans(launched_after, state,
                                           target, scan_type, user_login)
-        return self.resultsets.formatter(scans)
+        return True, self.resultsets.formatter(scans)

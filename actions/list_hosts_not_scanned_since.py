@@ -8,4 +8,4 @@ __all__ = [
 class ListHostsNotScannedSinceAction(QualysBaseAction):
     def run(self, days):
         hosts = self.connection.notScannedSince(days)
-        return self.resultsets.formatter(hosts)
+        return True, self.resultsets.formatter(hosts)

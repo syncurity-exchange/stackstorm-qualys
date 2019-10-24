@@ -8,4 +8,4 @@ __all__ = [
 class ListReportsAction(QualysBaseAction):
     def run(self):
         reports = self.connection.listReports()
-        return self.resultsets.formatter(reports)
+        return True, self.resultsets.formatter(reports)
