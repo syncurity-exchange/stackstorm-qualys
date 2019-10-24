@@ -3,8 +3,8 @@ from qualysapi.api_objects import Host, Scan, Report
 
 class FieldLists():
     HOST = ['dns', 'id', 'ip', 'last_scan', 'netbios', 'os', 'tracking_method']
-    SCAN = ['assetgroups', 'duration', 'launch_datetime', 'option_profile',
-            'processed', 'ref', 'status', 'target',
+    SCAN = ['assetgroups', 'duration',  # 'launch_datetime',
+            'option_profile', 'processed', 'ref', 'status', 'target',
             'title', 'type', 'user_login']
     REPORT = ['expiration_datetime', 'id', 'launch_datetime', 'output_format',
               'size', 'status', 'type', 'user_login']
