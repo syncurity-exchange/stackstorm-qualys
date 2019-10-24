@@ -15,6 +15,6 @@ class LaunchScanAction(QualysBaseAction):
         scan = self.connection.launchScan(title, option_title,
                                           iscanner_name, asset_groups, ip)
         output = self.resultsets.formatter(scan)
-        if isinstance(output['launch_datetime'], datetime.date()):
+        if isinstance(output['launch_datetime'], datetime.date):
             output['launch_datetime'] = output['launch_datetime'].isoformat()
         return True, json.dumps(output)
