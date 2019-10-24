@@ -16,10 +16,12 @@ class ResultSets(object):
         if isinstance(output, Host):
             return self.parse(output, FieldLists.HOST)
         elif isinstance(output, Scan):
+            print('found scan')
             return self.parse(output, FieldLists.SCAN)
         elif isinstance(output, Report):
             return self.parse(output, FieldLists.REPORT)
         else:
+            print('list not selected')
             return output
 
     def formatter(self, output):
@@ -27,8 +29,10 @@ class ResultSets(object):
         if isinstance(output, list):
             for o in output:
                 formatted.append(self.selector(o))
+            print('formatter is list')
         else:
             formatted = self.selector(output)
+            print('formatter not list')
         return formatted
 
     def _getval(self, obj, field):
