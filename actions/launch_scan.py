@@ -17,4 +17,4 @@ class LaunchScanAction(QualysBaseAction):
         output = self.resultsets.formatter(scan)
         if isinstance(output['launch_datetime'], datetime.date):
             output['launch_datetime'] = output['launch_datetime'].isoformat()
-        return True, json.dumps(output)
+        return True, output
