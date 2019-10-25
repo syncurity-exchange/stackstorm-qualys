@@ -30,7 +30,7 @@ class ListScanAction(QualysBaseAction):
         if isinstance(output['launch_datetime'], datetime.date):
             output['launch_datetime'] = output['launch_datetime'].isoformat()
 
-        return True, output
+        return True, output[0]
 
     def list_scan(self, scan_ref, launched_after="", state="", type="", target="", user_login=""):
         """"# 'scan_ref' the scan to return info for
