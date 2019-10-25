@@ -1,6 +1,5 @@
 from lib.base import QualysBaseAction
 
-import qualysapi.api_objects
 from qualysapi.api_objects import Scan
 
 from datetime import datetime
@@ -30,8 +29,6 @@ class ListScanAction(QualysBaseAction):
         output = self.resultsets.formatter(scan)
         if isinstance(output['launch_datetime'], datetime.date):
             output['launch_datetime'] = output['launch_datetime'].isoformat()
-
-        output = self.resultsets.formatter(scan)
 
         return True, output
 
