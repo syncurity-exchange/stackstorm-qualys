@@ -17,8 +17,7 @@ class ListScanAction(QualysBaseAction):
             'launched_after': launched_after,
             'state': state,
             'scan_type': scan_type,
-            'user_login': user_login,
-            'output_format': 'json'
+            'user_login': user_login
         }
         try:
             scan = self.connection.request(
