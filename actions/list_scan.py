@@ -26,11 +26,11 @@ class ListScanAction(QualysBaseAction):
 
         scan = self.list_scan(**payload)
 
-        output = self.resultsets.formatter(scan)
+        output = self.resultsets.formatter(scan[0])
         if isinstance(output['launch_datetime'], datetime.date):
             output['launch_datetime'] = output['launch_datetime'].isoformat()
 
-        return True, output[0]
+        return True, output
 
     def list_scan(self, scan_ref, launched_after="", state="", type="", target="", user_login=""):
         """"# 'scan_ref' the scan to return info for
