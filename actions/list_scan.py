@@ -1,6 +1,7 @@
 from lib.base import QualysBaseAction
 
-import json
+from datetime import datetime
+import datetime
 
 __all__ = [
     'ListScanAction'
@@ -26,4 +27,9 @@ class ListScanAction(QualysBaseAction):
             api_version=2,
             http_method='GET'
         )
-        return True, json.loads(scan)
+
+        output = self.resultsets.formatter(scan)
+        if isinstance(output['launch_datetime'], datetime.date):
+            output['launch_datetime'] = output['launch_datetime'].isoformat()
+
+        return True, output
