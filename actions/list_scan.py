@@ -25,13 +25,13 @@ class ListScanAction(QualysBaseAction):
             'user_login': user_login
         }
 
-        scan = self.listScan(**payload)
+        scan = self.list_scan(**payload)
 
         output = self.resultsets.formatter(scan)
 
         return True, output
 
-    def listScan(self, scan_ref, launched_after="", state="", type="", target="", user_login=""):
+    def list_scan(self, scan_ref, launched_after="", state="", type="", target="", user_login=""):
         """"# 'scan_ref' the scan to return info for
         # 'launched_after' parameter accepts a date in the format: YYYY-MM-DD
         # 'state' parameter accepts "Running", "Paused", "Canceled", "Finished", "Error",
