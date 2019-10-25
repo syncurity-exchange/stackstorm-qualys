@@ -30,6 +30,7 @@ class ListScanAction(QualysBaseAction):
 
         output = self.resultsets.formatter(scan)
         if isinstance(output['launch_datetime'], datetime.date):
+            print(output['launch_datetime'])
             output['launch_datetime'] = output['launch_datetime'].isoformat()
 
         return True, output
