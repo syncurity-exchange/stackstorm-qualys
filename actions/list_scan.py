@@ -19,13 +19,11 @@ class ListScanAction(QualysBaseAction):
             'scan_type': scan_type,
             'user_login': user_login
         }
-        try:
-            scan = self.connection.request(
-                api_call='api/2.0/fo/scan',
-                data=payload,
-                api_version=2,
-                http_method='GET'
-            )
-            return True, json.loads(scan)
-        except ConnectionError as e:
-            return False, e
+
+        scan = self.connection.request(
+            api_call='api/2.0/fo/scan',
+            data=payload,
+            api_version=2,
+            http_method='GET'
+        )
+        return True, json.loads(scan)
