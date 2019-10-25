@@ -57,7 +57,7 @@ class ListScanAction(QualysBaseAction):
         if user_login != "":
             parameters['user_login'] = user_login
 
-        scanlist = objectify.fromstring(self.request(call, parameters).encode('utf-8'))
+        scanlist = objectify.fromstring(self.connection.request(call, parameters).encode('utf-8'))
         scanArray = []
         for scan in scanlist.RESPONSE.SCAN_LIST.SCAN:
             try:
