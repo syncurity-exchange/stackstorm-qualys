@@ -8,21 +8,25 @@ __all__ = [
 
 
 class ListScanAction(QualysBaseAction):
-    def run(self, scan_ref=None):
+    def run(self, scan_ref, launched_after="", state="",
+            scan_type="", user_login=""):
+
         payload = {
-            'scan_ref': scan_ref,
             'action': 'list',
+            'scan_ref': scan_ref,
+            'launched_after': launched_after,
+            'state': state,
+            'scan_type': scan_type,
+            'user_login': user_login,
             'output_format': 'json'
         }
-        scan_results = None
         try:
-            scan_results = self.connection.request(
+            scan = self.connection.request(
                 api_call='api/2.0/fo/scan',
                 data=payload,
                 api_version=2,
                 http_method='GET'
             )
-            return True, json.loads(scan_results)
+            return True, json.loads(scan)
         except ConnectionError as e:
             return False, e
-
